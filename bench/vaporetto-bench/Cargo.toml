@@ -1,0 +1,7 @@
+[package]
+name = "vaporetto-bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+vaporetto = { version = "=0.1.6", features = ["kytea"] }

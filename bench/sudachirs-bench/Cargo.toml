@@ -1,0 +1,7 @@
+[package]
+name = "sudachirs-bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sudachi = { path = "../../thirdparty/sudachi.rs/sudachi" }
