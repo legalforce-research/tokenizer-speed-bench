@@ -1,5 +1,7 @@
 #include <mecab.h>
 
+#include <chrono>
+#include <cstring>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,10 +16,10 @@ int main(int argc, const char **argv) {
     for (std::string line; std::getline(std::cin, line);) {
         lines.push_back(line);
     }
-    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
     std::vector<char> buf(8192);
+    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
     for (std::string &line : lines) {
-        std::strncpy(buf.data(), line.c_str(), line.size());
+        std::strcpy(buf.data(), line.c_str());
         const char *r = tagger->parse(buf.data());
         n_words += static_cast<int>(reinterpret_cast<size_t>(r));
     }
