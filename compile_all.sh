@@ -4,6 +4,7 @@ set -eux
 
 which patch
 which cargo
+which wasm-pack
 which autoreconf
 which libtool
 which make
@@ -13,6 +14,10 @@ pushd "./bench/vaporetto-bench"
 cargo build --release
 popd
 
+pushd "./bench/vaporetto-wasm-bench"
+wasm-pack build --target nodejs
+popd
+
 pushd "./thirdparty/kytea"
 autoreconf -i
 ./configure --prefix=$(pwd)/tmpusr
@@ -20,7 +25,7 @@ make
 make install
 popd
 pushd "./bench/kytea-bench"
-g++ -std=c++11 -O2 ./main.cc -I../../thirdparty/kytea/src/include/ ../../thirdparty/kytea/tmpusr/lib/libkytea.a
+LIBRARY_PATH=$(cd ../.. && pwd)/thirdparty/kytea/tmpusr/lib g++ -std=c++11 -O2 ./main.cc -I../../thirdparty/kytea/tmpusr/include -lkytea
 popd
 
 pushd "./thirdparty/mecab/mecab"
@@ -34,7 +39,7 @@ make
 make install
 popd
 pushd "./bench/mecab-bench"
-g++ -std=c++11 -O2 ./main.cc -I../../thirdparty/mecab/tmpusr/include ../../thirdparty/mecab/tmpusr/lib/libmecab.a -liconv
+LIBRARY_PATH=$(cd ../.. && pwd)/thirdparty/mecab/tmpusr/lib g++ -std=c++11 -O2 ./main.cc -I../../thirdparty/mecab/tmpusr/include -lmecab
 popd
 
 pushd "./bench/kuromoji-bench"

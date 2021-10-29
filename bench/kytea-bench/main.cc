@@ -37,7 +37,7 @@ int main(int argc, const char **argv) {
         << "Elapsed-kytea: "
         << static_cast<double>(d) / 1000
         << " [sec]" << std::endl;
-    std::cout << n_words << std::endl;
+    std::cerr << n_words << std::endl;
 
     return 0;
 }

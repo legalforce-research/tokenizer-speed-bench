@@ -12,9 +12,13 @@ do
 
         ./bench/vaporetto-bench/target/release/vaporetto-bench < $INPUT_DATA
 
-		./bench/kytea-bench/a.out -model "./resources/jp-0.4.7-6.mod" < $INPUT_DATA
+        node ./bench/vaporetto-wasm-bench/index.js < $INPUT_DATA
 
-        ./bench/mecab-bench/a.out < $INPUT_DATA
+        LD_LIBRARY_PATH=$PWD/thirdparty/kytea/tmpusr/lib ./bench/kytea-bench/a.out -model "./resources/jp-0.4.7-6.mod" < $INPUT_DATA
+
+        LD_LIBRARY_PATH=$PWD/thirdparty/mecab/tmpusr/lib ./bench/mecab-bench/a.out < $INPUT_DATA
+
+        node ./bench/tinysegmenter-bench/index.js < $INPUT_DATA
 
         pushd ./bench/kuromoji-bench
         mvn exec:java -Dexec.mainClass=kuromoji_bench.App < ../../$INPUT_DATA

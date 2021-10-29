@@ -11,7 +11,7 @@ import java.time.Duration;
 public class App {
     public static void main(String[] args) {
         Tokenizer tokenizer = new Tokenizer();
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in, "utf-8");
         List<String> lines = new ArrayList<String>();
         while (input.hasNext()) {
             lines.add(input.nextLine());

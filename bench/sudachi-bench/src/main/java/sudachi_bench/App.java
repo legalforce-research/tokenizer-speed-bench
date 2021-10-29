@@ -16,7 +16,7 @@ import java.nio.file.Files;
 public class App {
     public static void main(String[] args) throws IOException {
         String settings = Files.readString(Paths.get("sudachi.json"));
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in, "utf-8");
         List<String> lines = new ArrayList<String>();
         while (input.hasNext()) {
             lines.add(input.nextLine());
