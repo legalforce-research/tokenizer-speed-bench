@@ -8,5 +8,5 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 js-sys = "0.3.55"
-vaporetto = { path = "../../../vaporetto/vaporetto", features = ["kytea"] }
+vaporetto = { version = "=0.1.6", features = ["kytea"] }
 wasm-bindgen = "0.2.78"
