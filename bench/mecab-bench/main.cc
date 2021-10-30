@@ -19,7 +19,7 @@ int main(int argc, const char **argv) {
     const std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
     for (std::string &line : lines) {
         std::strcpy(buf.data(), line.c_str());
-        const volatime char *r = tagger->parse(buf.data());
+        const volatile char *r = tagger->parse(buf.data());
     }
     const std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
     const auto d = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
