@@ -9,4 +9,4 @@
 	url = https://github.com/WorksApplications/sudachi.rs.git
 [submodule "thirdparty/janome"]
 	path = thirdparty/janome
-	url = git@github.com:mocobeta/janome.git
+	url = https://github.com/mocobeta/janome.git
