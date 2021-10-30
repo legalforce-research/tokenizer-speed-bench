@@ -17,7 +17,7 @@ python3 ./setup.py build
 popd
 
 pushd "./thirdparty/mecab/mecab"
-./configure --prefix=$(cd .. && pwd)/tmpusr
+./configure --prefix=$(cd .. && pwd)/tmpusr --libdir=$(cd .. && pwd)/tmpusr/lib
 make
 make install
 popd
@@ -30,7 +30,7 @@ popd
 
 pushd "./thirdparty/kytea"
 autoreconf -i
-./configure --prefix=$(pwd)/tmpusr
+./configure --prefix=$(pwd)/tmpusr --libdir=$(pwd)/tmpusr/lib
 make
 make install
 popd
