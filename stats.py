@@ -18,19 +18,27 @@ RE_DICT = [
     ('sudachi.rs', re.compile(r'Elapsed-sudachi.rs: ([0-9\.]+) \[sec\]')),
     ('vaporetto-wasm', re.compile(r'Elapsed-vaporetto-wasm: ([0-9\.]+) \[sec\]')),
     ('tiny-segmenter', re.compile(r'Elapsed-tiny-segmenter: ([0-9\.]+) \[sec\]')),
+    ('janome', re.compile(r'Elapsed-janome: ([0-9\.]+) \[sec\]')),
 ]
 
-N_CHARS = 16318893
+
+def count_chars() -> int:
+    n_chars = 0
+    with open('./resources/wagahaiwa_nekodearu.txt') as fp:
+        for line in fp:
+            n_chars += len(line.rstrip('\n'))
+    return n_chars
 
 
-def mean_std(times: list[float]) -> (float, float):
-    speeds = [N_CHARS / time for time in times]
+def mean_std(n_chars: int, times: list[float]) -> (float, float):
+    speeds = [n_chars / time for time in times]
     mean = sum(speeds) / len(speeds)
     dist = sum((speed - mean) ** 2 for speed in speeds) / len(speeds)
     return mean, math.sqrt(dist)
 
 
 def _main():
+    n_chars = count_chars()
     times = collections.defaultdict(list)
     for line in sys.stdin:
         for name, r in RE_DICT:
@@ -40,7 +48,7 @@ def _main():
                 break
 
     for name, _ in RE_DICT:
-        mean, std = mean_std(times[name])
+        mean, std = mean_std(n_chars, times[name])
         print(f'{name} {mean} {std}')
 
 

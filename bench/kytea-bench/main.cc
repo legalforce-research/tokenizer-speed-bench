@@ -24,15 +24,15 @@ int main(int argc, const char **argv) {
     for (std::string line; std::getline(std::cin, line);) {
         lines.push_back(line);
     }
-    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+    const std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
     for (std::string line : lines) {
-        KyteaString surface_string = util->mapString(line);
+        const KyteaString surface_string = util->mapString(line);
         KyteaSentence sentence(surface_string, surface_string);
         kytea->calculateWS(sentence);
         n_words += sentence.words.size();
     }
-    std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-    auto d = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
+    const std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+    const auto d = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
     std::cout
         << "Elapsed-kytea: "
         << static_cast<double>(d) / 1000

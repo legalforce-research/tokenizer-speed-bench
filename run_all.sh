@@ -2,7 +2,11 @@
 
 set -eux
 
-INPUT_DATA="./resources/kftt-data-1.0/data/orig/kyoto-train.ja"
+which node
+which mvn
+which python3
+
+INPUT_DATA="./resources/wagahaiwa_nekodearu.txt"
 
 for i in 0 1 2 3 4 5 6 7 8 9
 do
@@ -29,6 +33,8 @@ do
         pushd ./bench/sudachi-bench
         mvn exec:java -Dexec.mainClass=sudachi_bench.App < ../../$INPUT_DATA
         popd
+
+        python3 ./bench/janome-bench/main.py < $INPUT_DATA
 
         ./bench/sudachirs-bench/target/release/sudachirs-bench < $INPUT_DATA
     done
