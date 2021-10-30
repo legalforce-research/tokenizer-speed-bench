@@ -32,10 +32,10 @@ int main(int argc, const char **argv) {
         n_words += sentence.words.size();
     }
     const std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-    const auto d = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
+    const auto d = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout
         << "Elapsed-kytea: "
-        << static_cast<double>(d) / 1000
+        << static_cast<double>(d) / 1000000
         << " [sec]" << std::endl;
     std::cerr << n_words << std::endl;
 

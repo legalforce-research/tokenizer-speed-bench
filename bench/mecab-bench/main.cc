@@ -22,10 +22,10 @@ int main(int argc, const char **argv) {
         const volatile char *r = tagger->parse(buf.data());
     }
     const std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-    const auto d = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
+    const auto d = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout
         << "Elapsed-mecab: "
-        << static_cast<double>(d) / 1000
+        << static_cast<double>(d) / 1000000
         << " [sec]" << std::endl;
 
     return 0;

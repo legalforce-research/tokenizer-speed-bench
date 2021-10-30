@@ -30,7 +30,7 @@ public class App {
                 n_words += tokens.size();
             }
             Instant finish = Instant.now();
-            double timeElapsed = (double) Duration.between(start, finish).toMillis() / 1000;
+            double timeElapsed = (double) Duration.between(start, finish).toNanos() / 1000000000;
             System.out.println("Elapsed-sudachi: " + timeElapsed + " [sec]");
             System.out.println(n_words);
         }
