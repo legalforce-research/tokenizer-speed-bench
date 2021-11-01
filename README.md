@@ -8,7 +8,7 @@ To perform benchmarking, you have to run the following two steps.
 
 ### Preparation
 
-The following commands prepare resources (e.g. model data) and compile codes.
+The following commands prepare resources (e.g. model data) and compile source codes.
 
 ```
 % git submodule update --init
@@ -18,7 +18,7 @@ The following commands prepare resources (e.g. model data) and compile codes.
 
 ### Measurement
 
-To measure speed of each tokenizer, run the following commands.
+To measure the speed of each tokenizer, run the following commands.
 If you stop `./run_all.sh` in the middle, `./stats.py` will calculate statistics from avaiable results.
 
 ```
