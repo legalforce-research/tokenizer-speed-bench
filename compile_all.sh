@@ -4,17 +4,12 @@ set -eux
 
 which patch
 which cargo
-which wasm-pack
 which autoreconf
 which libtool
 which make
 which mvn
 
 # Build thirdparty libraries
-
-pushd "./thirdparty/janome"
-python3 ./setup.py build
-popd
 
 pushd "./thirdparty/mecab/mecab"
 ./configure --prefix=$(cd .. && pwd)/tmpusr --libdir=$(cd .. && pwd)/tmpusr/lib
@@ -41,9 +36,6 @@ pushd "./bench/vaporetto-bench"
 cargo build --release
 popd
 
-pushd "./bench/vaporetto-wasm-bench"
-wasm-pack build --target nodejs
-popd
 pushd "./bench/kytea-bench"
 LIBRARY_PATH=$(cd ../.. && pwd)/thirdparty/kytea/tmpusr/lib g++ -std=c++11 -O2 ./main.cc -I../../thirdparty/kytea/tmpusr/include -lkytea
 popd
@@ -65,5 +57,9 @@ mvn compile
 popd
 
 pushd "./bench/sudachirs-bench"
+cargo build --release
+popd
+
+pushd "./bench/rust-tinysegmenter-bench"
 cargo build --release
 popd

@@ -1,7 +1,7 @@
 [package]
 name = "sudachirs-bench"
 version = "0.1.0"
-edition = "2018"
+edition = "2021"
 
 [dependencies]
-sudachi = { path = "../../thirdparty/sudachi.rs/sudachi" }
+sudachi = { git = "https://github.com/WorksApplications/sudachi.rs.git", rev = "26a9f18" }
