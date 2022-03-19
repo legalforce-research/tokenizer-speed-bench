@@ -17,7 +17,3 @@ wget "http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict/sudachi
 rm -rf "./sudachi-dictionary-20210802"
 unzip "./sudachi-dictionary-20210802-core.zip"
 popd
-
-pushd "./thirdparty/sudachi.rs"
-"./fetch_dictionary.sh"
-popd
