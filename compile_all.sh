@@ -40,7 +40,11 @@ pushd "./bench/kytea-bench"
 LIBRARY_PATH=$(cd ../.. && pwd)/thirdparty/kytea/tmpusr/lib g++ -std=c++11 -O2 ./main.cc -I../../thirdparty/kytea/tmpusr/include -lkytea
 popd
 
-pushd "./bench/mecab-bench"
+pushd "./bench/mecab-ipadic-bench"
+LIBRARY_PATH=$(cd ../.. && pwd)/thirdparty/mecab/tmpusr/lib g++ -std=c++11 -O2 ./main.cc -I../../thirdparty/mecab/tmpusr/include -lmecab
+popd
+
+pushd "./bench/mecab-unidic-bench"
 LIBRARY_PATH=$(cd ../.. && pwd)/thirdparty/mecab/tmpusr/lib g++ -std=c++11 -O2 ./main.cc -I../../thirdparty/mecab/tmpusr/include -lmecab
 popd
 

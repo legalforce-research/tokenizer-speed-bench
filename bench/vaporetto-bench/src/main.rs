@@ -1,13 +1,11 @@
-use std::io::{BufRead, Cursor};
-use std::convert::TryFrom;
+use std::io::BufRead;
 
-use vaporetto::{KyteaModel, Model, Sentence, Predictor};
+use vaporetto::{Predictor, Sentence};
 
 fn main() {
-    let mut model_data = Cursor::new(include_bytes!("../../../resources/jp-0.4.7-5.mod"));
-    let model = KyteaModel::read(&mut model_data).unwrap();
-    let model = Model::try_from(model).unwrap();
-    let predictor = Predictor::new(model, false).unwrap();
+    let predictor_data = include_bytes!(concat!(env!("OUT_DIR"), "/predictor.bin"));
+    let (predictor, _) =
+        unsafe { Predictor::deserialize_from_slice_unchecked(predictor_data) }.unwrap();
     let mut lines = vec![];
     for line in std::io::stdin().lock().lines() {
         lines.push(line.unwrap());

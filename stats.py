@@ -11,14 +11,13 @@ import sys
 RE_DICT = [
     ('kytea', re.compile(r'Elapsed-kytea: ([0-9\.]+) \[sec\]')),
     ('vaporetto', re.compile(r'Elapsed-vaporetto: ([0-9\.]+) \[sec\]')),
-    ('mecab', re.compile(r'Elapsed-mecab: ([0-9\.]+) \[sec\]')),
+    ('mecab-ipadic', re.compile(r'Elapsed-mecab-ipadic: ([0-9\.]+) \[sec\]')),
+    ('mecab-unidic', re.compile(r'Elapsed-mecab-unidic: ([0-9\.]+) \[sec\]')),
     ('kuromoji', re.compile(r'Elapsed-kuromoji: ([0-9\.]+) \[sec\]')),
     ('lindera', re.compile(r'Elapsed-lindera: ([0-9\.]+) \[sec\]')),
     ('sudachi', re.compile(r'Elapsed-sudachi: ([0-9\.]+) \[sec\]')),
     ('sudachi.rs', re.compile(r'Elapsed-sudachi.rs: ([0-9\.]+) \[sec\]')),
-    ('vaporetto-wasm', re.compile(r'Elapsed-vaporetto-wasm: ([0-9\.]+) \[sec\]')),
-    ('tiny-segmenter', re.compile(r'Elapsed-tiny-segmenter: ([0-9\.]+) \[sec\]')),
-    ('janome', re.compile(r'Elapsed-janome: ([0-9\.]+) \[sec\]')),
+    ('rust-tiny-segmenter', re.compile(r'Elapsed-rust-tiny-segmenter: ([0-9\.]+) \[sec\]')),
 ]
 
 

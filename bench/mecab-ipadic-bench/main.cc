@@ -24,7 +24,7 @@ int main(int argc, const char **argv) {
     const std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
     const auto d = std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
     std::cout
-        << "Elapsed-mecab: "
+        << "Elapsed-mecab-ipadic: "
         << static_cast<double>(d) / 1000000
         << " [sec]" << std::endl;
 

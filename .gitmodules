@@ -4,6 +4,3 @@
 [submodule "thirdparty/mecab"]
 	path = thirdparty/mecab
 	url = https://github.com/taku910/mecab.git
-[submodule "thirdparty/janome"]
-	path = thirdparty/janome
-	url = https://github.com/mocobeta/janome.git
