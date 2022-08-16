@@ -24,7 +24,9 @@ do
     mvn exec:java -Dexec.mainClass=kuromoji_bench.App < ../../$INPUT_DATA
     popd
 
-    ./bench/lindera-bench/target/release/lindera-bench < $INPUT_DATA
+    ./bench/lindera-ipadic-bench/target/release/lindera-ipadic-bench < $INPUT_DATA
+
+    ./bench/lindera-unidic-bench/target/release/lindera-unidic-bench < $INPUT_DATA
 
     pushd ./bench/sudachi-bench
     mvn exec:java -Dexec.mainClass=sudachi_bench.App < ../../$INPUT_DATA

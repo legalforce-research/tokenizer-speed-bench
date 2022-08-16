@@ -15,7 +15,8 @@ RE_DICT = [
     ('mecab-unidic-2_1_2', re.compile(r'Elapsed-mecab-unidic-2_1_2: ([0-9\.]+) \[sec\]')),
     ('mecab-unidic-3_1_0', re.compile(r'Elapsed-mecab-unidic-3_1_0: ([0-9\.]+) \[sec\]')),
     ('kuromoji', re.compile(r'Elapsed-kuromoji: ([0-9\.]+) \[sec\]')),
-    ('lindera', re.compile(r'Elapsed-lindera: ([0-9\.]+) \[sec\]')),
+    ('lindera-ipadic', re.compile(r'Elapsed-lindera-ipadic: ([0-9\.]+) \[sec\]')),
+    ('lindera-unidic', re.compile(r'Elapsed-lindera-unidic: ([0-9\.]+) \[sec\]')),
     ('sudachi', re.compile(r'Elapsed-sudachi: ([0-9\.]+) \[sec\]')),
     ('sudachi.rs', re.compile(r'Elapsed-sudachi.rs: ([0-9\.]+) \[sec\]')),
     ('rust-tiny-segmenter', re.compile(r'Elapsed-rust-tiny-segmenter: ([0-9\.]+) \[sec\]')),
@@ -33,10 +34,16 @@ def count_chars() -> int:
     return n_chars
 
 
-def mean_std(n_chars: int, times: list[float]) -> (float, float):
+def mean_std_speed(n_chars: int, times: list[float]) -> (float, float):
     speeds = [n_chars / time for time in times]
     mean = sum(speeds) / len(speeds)
     dist = sum((speed - mean) ** 2 for speed in speeds) / len(speeds)
+    return mean, math.sqrt(dist)
+
+
+def mean_std_time(n_chars: int, times: list[float]) -> (float, float):
+    mean = sum(times) / len(times)
+    dist = sum((time - mean) ** 2 for time in times) / len(times)
     return mean, math.sqrt(dist)
 
 
@@ -50,10 +57,18 @@ def _main():
                 times[name].append(float(m.group(1)))
                 break
 
+    print('# Speed [chars/sec]')
     for name, _ in RE_DICT:
         if not name in times.keys():
             continue
-        mean, std = mean_std(n_chars, times[name])
+        mean, std = mean_std_speed(n_chars, times[name])
+        print(f'{name} {mean} {std}')
+
+    print('# Time [sec]')
+    for name, _ in RE_DICT:
+        if not name in times.keys():
+            continue
+        mean, std = mean_std_time(n_chars, times[name])
         print(f'{name} {mean} {std}')
 
 
