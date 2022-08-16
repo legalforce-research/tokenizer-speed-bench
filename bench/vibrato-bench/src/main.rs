@@ -7,11 +7,11 @@ use vibrato::{Dictionary, Tokenizer};
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    let root_dir = env!("CARGO_MANIFEST_DIR");
+    let rootdir = env!("CARGO_MANIFEST_DIR");
     let dictname = &args[1];
 
     let reader = BufReader::new(
-        File::open(format!("{}/resources_{}/system.dic", root_dir, dictname)).unwrap(),
+        File::open(format!("{}/resources_{}/system.dic", rootdir, dictname)).unwrap(),
     );
     let dict = unsafe { Dictionary::read_unchecked(reader).unwrap() };
     let mut tokenizer = Tokenizer::new(&dict);
