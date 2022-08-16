@@ -67,3 +67,7 @@ popd
 pushd "./bench/rust-tinysegmenter-bench"
 cargo build --release
 popd
+
+pushd "./bench/vibrato-bench"
+cargo build --release
+popd

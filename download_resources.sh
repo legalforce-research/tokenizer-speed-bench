@@ -23,3 +23,13 @@ wget "http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict/sudachi
 rm -rf "./sudachi-dictionary-20210802"
 unzip "./sudachi-dictionary-20210802-core.zip"
 popd
+
+pushd "./thirdparty/vibrato"
+./scripts/prepare_ipadic-mecab-2_7_0.sh
+./scripts/prepare_unidic-mecab-2_1_2.sh
+./scripts/prepare_unidic-cwj-3_1_0.sh
+popd
+
+mv "./thirdparty/vibrato/resources_ipadic-mecab-2_7_0" "./bench/vibrato-bench/"
+mv "./thirdparty/vibrato/resources_unidic-mecab-2_1_2" "./bench/vibrato-bench/"
+mv "./thirdparty/vibrato/resources_unidic-cwj-3_1_0" "./bench/vibrato-bench/"
