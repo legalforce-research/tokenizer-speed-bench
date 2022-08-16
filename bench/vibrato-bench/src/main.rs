@@ -7,7 +7,12 @@ use vibrato::{Dictionary, Tokenizer};
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    let reader = BufReader::new(File::open(&args[1]).unwrap());
+    let root_dir = env!("CARGO_MANIFEST_DIR");
+    let dictname = &args[1];
+
+    let reader = BufReader::new(
+        File::open(format!("{}/resources_{}/system.dic", root_dir, dictname)).unwrap(),
+    );
     let dict = unsafe { Dictionary::read_unchecked(reader).unwrap() };
     let mut tokenizer = Tokenizer::new(&dict);
 
@@ -25,7 +30,11 @@ fn main() {
     }
     let duration = start.elapsed();
 
-    println!("Elapsed-vibrato: {} [sec]", duration.as_secs_f64());
+    println!(
+        "Elapsed-vibrato-{}: {} [sec]",
+        dictname,
+        duration.as_secs_f64()
+    );
 
     dbg!(n_words);
 }
