@@ -32,9 +32,9 @@ do
 
     ./bench/rust-tinysegmenter-bench/target/release/rust-tinysegmenter-bench < $INPUT_DATA
 
-    ./bench/vibrato-bench/target/release/vibrato-bench "ipadic-mecab-2_7_0" < $INPUT_DATA
+    ./bench/vibrato-bench/target/release/vibrato-bench --dictname="ipadic-mecab-2_7_0" < $INPUT_DATA
 
-    ./bench/vibrato-bench/target/release/vibrato-bench "unidic-mecab-2_1_2" < $INPUT_DATA
+    ./bench/vibrato-bench/target/release/vibrato-bench --dictname="unidic-mecab-2_1_2" < $INPUT_DATA
 
-    ./bench/vibrato-bench/target/release/vibrato-bench "unidic-cwj-3_1_0" < $INPUT_DATA
+    ./bench/vibrato-bench/target/release/vibrato-bench --dictname="unidic-cwj-3_1_0" < $INPUT_DATA
 done
