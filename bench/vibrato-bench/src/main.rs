@@ -11,7 +11,7 @@ fn main() {
     let dictname = &args[1];
 
     let reader = BufReader::new(
-        File::open(format!("{}/resources_{}/system.dic", rootdir, dictname)).unwrap(),
+        File::open(format!("{rootdir}/resources_{dictname}/system.dic")).unwrap(),
     );
     let dict = unsafe { Dictionary::read_unchecked(reader).unwrap() };
     let mut tokenizer = Tokenizer::new(&dict);
