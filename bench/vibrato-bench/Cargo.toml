@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 vibrato = { path = "../../thirdparty/vibrato/vibrato", default-features = false, features = ["unchecked"] }
+
+[profile.release.build-override]
+opt-level = 3
