@@ -50,8 +50,6 @@ def _main():
                 break
 
     for name, _ in RE_DICT:
-        if name not in times:
-            continue
         mean, std = mean_std(n_chars, times[name])
         print(f'{name} {mean} {std}')
 
