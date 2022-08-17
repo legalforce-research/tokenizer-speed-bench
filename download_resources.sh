@@ -12,10 +12,6 @@ wget "http://www.phontron.com/kytea/download/model/jp-0.4.7-5.mod.gz" -O "./jp-0
 rm -f "./jp-f.4.7-5.mod"
 gunzip "./jp-0.4.7-5.mod.gz"
 
-wget "https://clrd.ninjal.ac.jp/unidic_archive/cwj/2.1.2/unidic-mecab-2.1.2_bin.zip" -O "./unidic-mecab-2.1.2_bin.zip"
-rm -rf "./unidic-mecab-2.1.2_bin"
-unzip "./unidic-mecab-2.1.2_bin.zip"
-
 wget "https://ccd.ninjal.ac.jp/unidic_archive/cwj/3.1.0/unidic-cwj-3.1.0.zip" -O "./unidic-cwj-3.1.0.zip"
 rm -rf "./unidic-cwj-3.1.0"
 unzip "./unidic-cwj-3.1.0.zip"
@@ -30,10 +26,8 @@ popd
 
 pushd "./thirdparty/vibrato"
 ./scripts/prepare_ipadic-mecab-2_7_0.sh
-./scripts/prepare_unidic-mecab-2_1_2.sh
 ./scripts/prepare_unidic-cwj-3_1_0.sh
 popd
 
 mv "./thirdparty/vibrato/resources_ipadic-mecab-2_7_0" "./bench/vibrato-bench/"
-mv "./thirdparty/vibrato/resources_unidic-mecab-2_1_2" "./bench/vibrato-bench/"
 mv "./thirdparty/vibrato/resources_unidic-cwj-3_1_0" "./bench/vibrato-bench/"

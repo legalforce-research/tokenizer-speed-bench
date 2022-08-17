@@ -16,8 +16,6 @@ do
 
     LD_LIBRARY_PATH=$PWD/thirdparty/mecab/tmpusr/lib ./bench/mecab-ipadic-2_7_0-bench/a.out < $INPUT_DATA
 
-    LD_LIBRARY_PATH=$PWD/thirdparty/mecab/tmpusr/lib ./bench/mecab-unidic-2_1_2-bench/a.out < $INPUT_DATA
-
     LD_LIBRARY_PATH=$PWD/thirdparty/mecab/tmpusr/lib ./bench/mecab-unidic-3_1_0-bench/a.out < $INPUT_DATA
 
     pushd ./bench/kuromoji-bench
@@ -35,8 +33,6 @@ do
     ./bench/rust-tinysegmenter-bench/target/release/rust-tinysegmenter-bench < $INPUT_DATA
 
     ./bench/vibrato-bench/target/release/vibrato-bench --dictname="ipadic-mecab-2_7_0" < $INPUT_DATA
-
-    ./bench/vibrato-bench/target/release/vibrato-bench --dictname="unidic-mecab-2_1_2" < $INPUT_DATA
 
     ./bench/vibrato-bench/target/release/vibrato-bench --dictname="unidic-cwj-3_1_0" < $INPUT_DATA
 done
