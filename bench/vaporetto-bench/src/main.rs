@@ -1,11 +1,11 @@
-use std::io::{BufRead, Cursor};
+use std::io::BufRead;
 
-use vaporetto::{Model, Predictor, Sentence};
+use vaporetto::{Predictor, Sentence};
 
 fn main() {
-    let model_data = Cursor::new(include_bytes!(concat!(env!("OUT_DIR"), "/predictor.bin")));
-    let model = Model::read(model_data).unwrap();
-    let predictor = Predictor::new(model, false).unwrap();
+    let predictor_data = include_bytes!(concat!(env!("OUT_DIR"), "/predictor.bin"));
+    let (predictor, _) =
+        unsafe { Predictor::deserialize_from_slice_unchecked(predictor_data) }.unwrap();
 
     let mut lines = vec![];
     for line in std::io::stdin().lock().lines() {
