@@ -2,13 +2,12 @@
 name = "vaporetto-bench"
 version = "0.1.0"
 edition = "2021"
-resolver = "2"
 
 [dependencies]
-vaporetto = { git = "https://github.com/daac-tools/vaporetto.git", rev = "a8308cd", default-features = false, features = ["cache-type-score", "fix-weight-length"] }
+vaporetto = "=0.5.1"
 
 [build-dependencies]
-vaporetto = { git = "https://github.com/daac-tools/vaporetto.git", rev = "a8308cd", default-features = false, features = ["std", "cache-type-score", "fix-weight-length", "kytea"] }
+vaporetto = { version = "=0.5.1", features = ["kytea"] }
 
 [profile.release.build-override]
 opt-level = 3
