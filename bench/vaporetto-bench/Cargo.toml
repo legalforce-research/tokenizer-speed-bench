@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-vaporetto = { version = "0.5.1" }
+vaporetto = "=0.5.1"
 
 [build-dependencies]
 vaporetto = { version = "0.5.1", features = ["kytea"] }
