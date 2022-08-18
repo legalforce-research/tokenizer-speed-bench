@@ -32,16 +32,10 @@ def count_chars() -> int:
     return n_chars
 
 
-def mean_std_speed(n_chars: int, times: list[float]) -> (float, float):
+def mean_std(n_chars: int, times: list[float]) -> (float, float):
     speeds = [n_chars / time for time in times]
     mean = sum(speeds) / len(speeds)
     dist = sum((speed - mean) ** 2 for speed in speeds) / len(speeds)
-    return mean, math.sqrt(dist)
-
-
-def mean_std_time(n_chars: int, times: list[float]) -> (float, float):
-    mean = sum(times) / len(times)
-    dist = sum((time - mean) ** 2 for time in times) / len(times)
     return mean, math.sqrt(dist)
 
 
@@ -55,18 +49,8 @@ def _main():
                 times[name].append(float(m.group(1)))
                 break
 
-    print('# Speed [chars/sec]')
     for name, _ in RE_DICT:
-        if not name in times.keys():
-            continue
-        mean, std = mean_std_speed(n_chars, times[name])
-        print(f'{name} {mean} {std}')
-
-    print('# Time [sec]')
-    for name, _ in RE_DICT:
-        if not name in times.keys():
-            continue
-        mean, std = mean_std_time(n_chars, times[name])
+        mean, std = mean_std(n_chars, times[name])
         print(f'{name} {mean} {std}')
 
 
