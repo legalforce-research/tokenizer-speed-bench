@@ -1,19 +1,9 @@
 use std::io::BufRead;
 
-use lindera::mode::Mode;
-use lindera::tokenizer::{DictionaryConfig, DictionaryKind, Tokenizer, TokenizerConfig};
+use lindera::tokenizer::Tokenizer;
 
 fn main() {
-    let dictionary = DictionaryConfig {
-        kind: DictionaryKind::IPADIC,
-        path: None,
-    };
-    let config = TokenizerConfig {
-        dictionary,
-        user_dictionary: None,
-        mode: Mode::Normal,
-    };
-    let tokenizer = Tokenizer::with_config(config).unwrap();
+    let tokenizer = Tokenizer::new().unwrap();
 
     let lines: Vec<_> = std::io::stdin()
         .lock()
