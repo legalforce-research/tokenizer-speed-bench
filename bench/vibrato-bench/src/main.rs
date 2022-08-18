@@ -1,18 +1,25 @@
-use std::env;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
+use clap::Parser;
+
 use vibrato::{Dictionary, Tokenizer};
 
+#[derive(Parser, Debug)]
+#[clap(name = "main", about = "A program to benchmark.")]
+struct Args {
+    #[clap(long, action)]
+    dictname: String,
+}
+
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    let args = Args::parse();
 
     let rootdir = env!("CARGO_MANIFEST_DIR");
-    let dictname = &args[1];
+    let dictname = args.dictname;
 
-    let reader = BufReader::new(
-        File::open(format!("{}/resources_{}/system.dic", rootdir, dictname)).unwrap(),
-    );
+    let reader =
+        BufReader::new(File::open(format!("{rootdir}/resources_{dictname}/system.dic")).unwrap());
     let dict = unsafe { Dictionary::read_unchecked(reader).unwrap() };
     let mut tokenizer = Tokenizer::new(&dict);
 
