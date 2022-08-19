@@ -49,6 +49,11 @@ def _main():
                 times[name].append(float(m.group(1)))
                 break
 
+    # The first trial should be ignored
+    # to avoid unfair results due to lazy loading.
+    for name, _ in RE_DICT:
+        times[name] = times[name][1:]
+
     for name, _ in RE_DICT:
         mean, std = mean_std(n_chars, times[name])
         print(f'{name} {mean} {std}')
