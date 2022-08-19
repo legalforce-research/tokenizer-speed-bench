@@ -6,7 +6,8 @@ which mvn
 
 INPUT_DATA="./resources/wagahaiwa_nekodearu.txt"
 
-for i in $(seq 100)
+# iter=0 is a warm-up to avoid unfair results due to lazy loading.
+for i in $(seq 0 100)
 do
     echo "iter" $i
 
