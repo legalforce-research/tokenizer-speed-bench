@@ -17,7 +17,7 @@ RE_DICT = [
     ('lindera', re.compile(r'Elapsed-lindera: ([0-9\.]+) \[sec\]')),
     ('sudachi', re.compile(r'Elapsed-sudachi: ([0-9\.]+) \[sec\]')),
     ('sudachi.rs', re.compile(r'Elapsed-sudachi.rs: ([0-9\.]+) \[sec\]')),
-    ('rust-tiny-segmenter', re.compile(r'Elapsed-rust-tiny-segmenter: ([0-9\.]+) \[sec\]')),
+    ('rust-tinysegmenter', re.compile(r'Elapsed-rust-tinysegmenter: ([0-9\.]+) \[sec\]')),
     ('vibrato-ipadic-mecab-2_7_0', re.compile(r'Elapsed-vibrato-ipadic-mecab-2_7_0: ([0-9\.]+) \[sec\]')),
     ('vibrato-unidic-cwj-3_1_0', re.compile(r'Elapsed-vibrato-unidic-cwj-3_1_0: ([0-9\.]+) \[sec\]')),
 ]
@@ -47,6 +47,11 @@ def _main():
             if m is not None:
                 times[name].append(float(m.group(1)))
                 break
+
+    # The first trial should be ignored
+    # to avoid unfair results due to lazy loading.
+    for name, _ in RE_DICT:
+        times[name] = times[name][1:]
 
     for name, _ in RE_DICT:
         mean, std = mean_std(n_chars, times[name])
