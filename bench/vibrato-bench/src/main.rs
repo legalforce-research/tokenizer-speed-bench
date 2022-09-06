@@ -21,7 +21,7 @@ fn main() {
     let reader =
         BufReader::new(File::open(format!("{rootdir}/resources_{dictname}/system.dic")).unwrap());
     let dict = unsafe { Dictionary::read_unchecked(reader).unwrap() };
-    let mut tokenizer = Tokenizer::new(&dict);
+    let tokenizer = Tokenizer::new(dict);
 
     let lines: Vec<_> = std::io::stdin()
         .lock()
@@ -31,9 +31,11 @@ fn main() {
     let mut n_words = 0;
 
     let start = std::time::Instant::now();
+    let mut worker = tokenizer.new_worker();
     for line in &lines {
-        let tokens = tokenizer.tokenize(line).unwrap();
-        n_words += tokens.len();
+        worker.reset_sentence(line).unwrap();
+        worker.tokenize();
+        n_words += worker.num_tokens();
     }
     let duration = start.elapsed();
 
