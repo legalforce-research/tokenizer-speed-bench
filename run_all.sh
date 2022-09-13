@@ -4,7 +4,7 @@ set -eux
 
 which mvn
 
-INPUT_DATA="./resources/wagahaiwa_nekodearu.txt"
+INPUT_DATA="./bccwj/bccwj-test-130k.txt"
 
 # iter=0 is a warm-up to avoid unfair results due to lazy loading.
 for i in $(seq 0 100)

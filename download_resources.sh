@@ -24,10 +24,15 @@ rm -rf "./sudachi-dictionary-20210802"
 unzip "./sudachi-dictionary-20210802-core.zip"
 popd
 
+cp -rf "scripts_vibrato" "./thirdparty/vibrato/"
+
 pushd "./thirdparty/vibrato"
-./scripts/prepare_ipadic-mecab-2_7_0.sh
-./scripts/prepare_unidic-cwj-3_1_0.sh
+./scripts_vibrato/prepare_ipadic-mecab-2_7_0.sh
+./scripts_vibrato/prepare_unidic-cwj-3_1_0.sh
 popd
+
+rm -rf "./bench/vibrato-bench/resources_ipadic-mecab-2_7_0"
+rm -rf "./bench/vibrato-bench/resources_unidic-cwj-3_1_0"
 
 mv "./thirdparty/vibrato/resources_ipadic-mecab-2_7_0" "./bench/vibrato-bench/"
 mv "./thirdparty/vibrato/resources_unidic-cwj-3_1_0" "./bench/vibrato-bench/"
