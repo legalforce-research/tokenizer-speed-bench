@@ -26,8 +26,8 @@ popd
 
 pushd "./thirdparty/vibrato"
 ./scripts/prepare_ipadic-mecab-2_7_0.sh
-./scripts/prepare_unidic-cwj-3_1_0.sh
+./scripts/prepare_unidic-cwj-3_1_1.sh
 popd
 
 mv "./thirdparty/vibrato/resources_ipadic-mecab-2_7_0" "./bench/vibrato-bench/"
-mv "./thirdparty/vibrato/resources_unidic-cwj-3_1_0" "./bench/vibrato-bench/"
+mv "./thirdparty/vibrato/resources_unidic-cwj-3_1_1" "./bench/vibrato-bench/"
