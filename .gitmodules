@@ -4,6 +4,3 @@
 [submodule "thirdparty/mecab"]
 	path = thirdparty/mecab
 	url = https://github.com/taku910/mecab.git
-[submodule "thirdparty/vibrato"]
-	path = thirdparty/vibrato
-	url = https://github.com/daac-tools/vibrato.git
