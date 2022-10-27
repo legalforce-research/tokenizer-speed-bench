@@ -35,5 +35,5 @@ do
 
     ./bench/vibrato-bench/target/release/vibrato-bench --dictname="ipadic-mecab-2_7_0" < $INPUT_DATA
 
-    ./bench/vibrato-bench/target/release/vibrato-bench --dictname="unidic-cwj-3_1_0" < $INPUT_DATA
+    ./bench/vibrato-bench/target/release/vibrato-bench --dictname="unidic-cwj-3_1_1" < $INPUT_DATA
 done
