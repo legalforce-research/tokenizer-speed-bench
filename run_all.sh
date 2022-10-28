@@ -17,7 +17,7 @@ do
 
     LD_LIBRARY_PATH=$PWD/thirdparty/mecab/tmpusr/lib ./bench/mecab-ipadic-2_7_0-bench/a.out < $INPUT_DATA
 
-    LD_LIBRARY_PATH=$PWD/thirdparty/mecab/tmpusr/lib ./bench/mecab-unidic-3_1_0-bench/a.out < $INPUT_DATA
+    LD_LIBRARY_PATH=$PWD/thirdparty/mecab/tmpusr/lib ./bench/mecab-unidic-3_1_1-bench/a.out < $INPUT_DATA
 
     pushd ./bench/kuromoji-bench
     mvn exec:java -Dexec.mainClass=kuromoji_bench.App < ../../$INPUT_DATA
