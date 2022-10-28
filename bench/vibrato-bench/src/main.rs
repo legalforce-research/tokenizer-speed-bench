@@ -18,10 +18,10 @@ fn main() {
     let rootdir = env!("CARGO_MANIFEST_DIR");
     let dictname = args.dictname;
 
-    let reader =
-        BufReader::new(File::open(format!("{rootdir}/resources_{dictname}/system.dic")).unwrap());
+    let reader = BufReader::new(File::open(format!("{rootdir}/{dictname}/system.dic")).unwrap());
     let dict = unsafe { Dictionary::read_unchecked(reader).unwrap() };
-    let mut tokenizer = Tokenizer::new(&dict);
+    let tokenizer = Tokenizer::new(dict);
+    let mut worker = tokenizer.new_worker();
 
     let lines: Vec<_> = std::io::stdin()
         .lock()
@@ -32,8 +32,9 @@ fn main() {
 
     let start = std::time::Instant::now();
     for line in &lines {
-        let tokens = tokenizer.tokenize(line).unwrap();
-        n_words += tokens.len();
+        worker.reset_sentence(line);
+        worker.tokenize();
+        n_words += worker.num_tokens();
     }
     let duration = start.elapsed();
 

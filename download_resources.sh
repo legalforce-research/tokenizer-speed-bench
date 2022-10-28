@@ -24,10 +24,9 @@ rm -rf "./sudachi-dictionary-20210802"
 unzip "./sudachi-dictionary-20210802-core.zip"
 popd
 
-pushd "./thirdparty/vibrato"
-./scripts/prepare_ipadic-mecab-2_7_0.sh
-./scripts/prepare_unidic-cwj-3_1_0.sh
+pushd "./bench/vibrato-bench"
+wget https://github.com/daac-tools/vibrato/releases/download/v0.3.1/ipadic-mecab-2_7_0.tar.gz
+tar -xzf ipadic-mecab-2_7_0.tar.gz
+wget https://github.com/daac-tools/vibrato/releases/download/v0.3.1/unidic-cwj-3_1_1.tar.gz
+tar -xzf unidic-cwj-3_1_1.tar.gz
 popd
-
-mv "./thirdparty/vibrato/resources_ipadic-mecab-2_7_0" "./bench/vibrato-bench/"
-mv "./thirdparty/vibrato/resources_unidic-cwj-3_1_0" "./bench/vibrato-bench/"
