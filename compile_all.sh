@@ -52,7 +52,11 @@ pushd "./bench/kuromoji-bench"
 mvn compile
 popd
 
-pushd "./bench/lindera-bench"
+pushd "./bench/lindera-ipadic-bench"
+cargo build --release
+popd
+
+pushd "./bench/lindera-unidic-bench"
 cargo build --release
 popd
 
