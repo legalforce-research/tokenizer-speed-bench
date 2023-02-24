@@ -73,5 +73,5 @@ cargo build --release
 popd
 
 pushd "./bench/vibrato-bench"
-cargo build --release
+RUSTFLAGS='-C target-feature=+avx2' cargo build --release
 popd
