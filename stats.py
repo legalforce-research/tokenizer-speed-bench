@@ -12,14 +12,16 @@ RE_DICT = [
     ('kytea', re.compile(r'Elapsed-kytea: ([0-9\.]+) \[sec\]')),
     ('vaporetto', re.compile(r'Elapsed-vaporetto: ([0-9\.]+) \[sec\]')),
     ('mecab-ipadic-2_7_0', re.compile(r'Elapsed-mecab-ipadic-2_7_0: ([0-9\.]+) \[sec\]')),
-    ('mecab-unidic-3_1_0', re.compile(r'Elapsed-mecab-unidic-3_1_0: ([0-9\.]+) \[sec\]')),
+    ('mecab-unidic-3_1_1', re.compile(r'Elapsed-mecab-unidic-3_1_1: ([0-9\.]+) \[sec\]')),
     ('kuromoji', re.compile(r'Elapsed-kuromoji: ([0-9\.]+) \[sec\]')),
-    ('lindera', re.compile(r'Elapsed-lindera: ([0-9\.]+) \[sec\]')),
+    ('lindera-ipadic', re.compile(r'Elapsed-lindera-ipadic: ([0-9\.]+) \[sec\]')),
+    ('lindera-unidic', re.compile(r'Elapsed-lindera-unidic: ([0-9\.]+) \[sec\]')),
     ('sudachi', re.compile(r'Elapsed-sudachi: ([0-9\.]+) \[sec\]')),
     ('sudachi.rs', re.compile(r'Elapsed-sudachi.rs: ([0-9\.]+) \[sec\]')),
     ('rust-tinysegmenter', re.compile(r'Elapsed-rust-tinysegmenter: ([0-9\.]+) \[sec\]')),
     ('vibrato-ipadic-mecab-2_7_0', re.compile(r'Elapsed-vibrato-ipadic-mecab-2_7_0: ([0-9\.]+) \[sec\]')),
     ('vibrato-unidic-cwj-3_1_1', re.compile(r'Elapsed-vibrato-unidic-cwj-3_1_1: ([0-9\.]+) \[sec\]')),
+    ('vibrato-unidic-cwj-3_1_1+compact', re.compile(r'Elapsed-vibrato-unidic-cwj-3_1_1\+compact: ([0-9\.]+) \[sec\]')),
 ]
 
 

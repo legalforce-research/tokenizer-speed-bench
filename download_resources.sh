@@ -25,8 +25,10 @@ unzip "./sudachi-dictionary-20210802-core.zip"
 popd
 
 pushd "./bench/vibrato-bench"
-wget https://github.com/daac-tools/vibrato/releases/download/v0.3.1/ipadic-mecab-2_7_0.tar.gz
-tar -xzf ipadic-mecab-2_7_0.tar.gz
-wget https://github.com/daac-tools/vibrato/releases/download/v0.3.1/unidic-cwj-3_1_1.tar.gz
-tar -xzf unidic-cwj-3_1_1.tar.gz
+wget https://github.com/daac-tools/vibrato/releases/download/v0.5.0/ipadic-mecab-2_7_0.tar.xz
+tar -xf ipadic-mecab-2_7_0.tar.xz
+wget https://github.com/daac-tools/vibrato/releases/download/v0.5.0/unidic-cwj-3_1_1.tar.xz
+tar -xf unidic-cwj-3_1_1.tar.xz
+wget https://github.com/daac-tools/vibrato/releases/download/v0.5.0/unidic-cwj-3_1_1+compact.tar.xz
+tar -xf unidic-cwj-3_1_1+compact.tar.xz
 popd
