@@ -22,6 +22,7 @@ RE_DICT = [
     ('vibrato-ipadic-mecab-2_7_0', re.compile(r'Elapsed-vibrato-ipadic-mecab-2_7_0: ([0-9\.]+) \[sec\]')),
     ('vibrato-unidic-cwj-3_1_1', re.compile(r'Elapsed-vibrato-unidic-cwj-3_1_1: ([0-9\.]+) \[sec\]')),
     ('vibrato-unidic-cwj-3_1_1+compact', re.compile(r'Elapsed-vibrato-unidic-cwj-3_1_1\+compact: ([0-9\.]+) \[sec\]')),
+    ('vibrato-unidic-cwj-3_1_1+compact-dual', re.compile(r'Elapsed-vibrato-unidic-cwj-3_1_1\+compact-dual: ([0-9\.]+) \[sec\]')),
 ]
 
 
