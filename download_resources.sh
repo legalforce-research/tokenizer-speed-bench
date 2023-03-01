@@ -31,4 +31,6 @@ wget https://github.com/daac-tools/vibrato/releases/download/v0.5.0/unidic-cwj-3
 tar -xf unidic-cwj-3_1_1.tar.xz
 wget https://github.com/daac-tools/vibrato/releases/download/v0.5.0/unidic-cwj-3_1_1+compact.tar.xz
 tar -xf unidic-cwj-3_1_1+compact.tar.xz
+wget https://github.com/daac-tools/vibrato/releases/download/v0.5.0/unidic-cwj-3_1_1+compact-dual.tar.xz
+tar -xf unidic-cwj-3_1_1+compact-dual.tar.xz
 popd
