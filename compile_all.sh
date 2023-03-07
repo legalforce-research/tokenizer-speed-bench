@@ -42,6 +42,7 @@ popd
 
 pushd "./bench/mecab-ipadic-2_7_0-bench"
 LIBRARY_PATH=$(cd ../.. && pwd)/thirdparty/mecab/tmpusr/lib g++ -std=c++11 -O3 ./main.cc -I../../thirdparty/mecab/tmpusr/include -lmecab
+LIBRARY_PATH=$(cd ../.. && pwd)/thirdparty/mecab/tmpusr/lib g++ -std=c++11 -O3 ./with_tags.cc -I../../thirdparty/mecab/tmpusr/include -lmecab -o with_tags.out
 popd
 
 pushd "./bench/mecab-unidic-3_1_1-bench"
