@@ -30,16 +30,16 @@ fn main() {
         .lines()
         .map(|line| line.unwrap())
         .collect();
-    let mut n_words = 0;
-    let mut n_tags = 0;
+    let mut n_surface = 0;
+    let mut n_feature = 0;
 
     let start = std::time::Instant::now();
     for line in &lines {
         worker.reset_sentence(line);
         worker.tokenize();
-        n_words += worker.num_tokens();
         for t in worker.token_iter() {
-            n_tags += t.feature().len();
+            n_surface += t.surface().len();
+            n_feature += t.feature().len();
         }
     }
     let duration = start.elapsed();
@@ -50,6 +50,6 @@ fn main() {
         duration.as_secs_f64()
     );
 
-    dbg!(n_words);
-    dbg!(n_tags);
+    dbg!(n_surface);
+    dbg!(n_feature);
 }
